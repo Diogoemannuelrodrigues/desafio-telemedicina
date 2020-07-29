@@ -1,5 +1,6 @@
 package br.com.telemedicina.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class UsuarioService {
 	public Usuario buscaUsuario (Integer usu) {
 		Optional<Usuario> usuario = repo.findById(usu);
 		return usuario.orElse(null);
+	}
+
+	public List<Usuario> listarUsuarios() {
+		return repo.findAll();
 	}
 	
 	public Usuario salvarUsuario (Usuario usuario) {

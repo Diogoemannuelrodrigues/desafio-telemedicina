@@ -1,6 +1,7 @@
 package br.com.telemedicina.resource;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,12 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(usuarioId);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Usuario> listUsuario(){
+		List<Usuario> usuarios = usuService.listarUsuarios();
+		return usuarios;
+	}
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> saveUsuario (@RequestBody Usuario usuario){
 		Usuario newCliente = usuService.salvarUsuario(usuario);
@@ -38,13 +45,13 @@ public class UsuarioResource {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario){
+	public ResponseEntity<Usuario> alterUsuario(@RequestBody Usuario usuario){
 		Usuario Usuarionew = usuService.alterarUsuario(usuario);
 		return ResponseEntity.ok().body(Usuarionew);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Usuario> deletaProduto(@PathVariable Integer id){
+	public ResponseEntity<Usuario> deletProduto(@PathVariable Integer id){
 		usuService.deletarUsuario(id);
 		return ResponseEntity.noContent().build();
 	}
