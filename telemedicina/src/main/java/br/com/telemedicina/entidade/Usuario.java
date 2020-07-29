@@ -26,7 +26,6 @@ public class Usuario implements Serializable {
 //	@CollectionTable(name="TELEFONE")
 	@OneToMany
 //	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-
 	private List<Telefone> telefones = new ArrayList<>();
 
 	public Usuario() {

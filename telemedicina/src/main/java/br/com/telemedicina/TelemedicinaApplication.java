@@ -56,8 +56,10 @@ public class TelemedicinaApplication implements CommandLineRunner {
 		telefone7.setUsuario(usu4);
 		telefone8.setUsuario(usu4);
 		
-		repo.saveAll(Arrays.asList(usu1,usu2,usu3,usu4));
+//		repo.saveAll(Arrays.asList(usu1,usu2,usu3,usu4));
+//		repo.save(usu1);
 		repo_tel.saveAll(Arrays.asList(telefone1,telefone2,telefone3,telefone4,telefone5,telefone6,telefone7,telefone8));
+//		repo_tel.save(telefone1);
 		
 	}
 
